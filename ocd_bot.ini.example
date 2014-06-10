@@ -1,0 +1,13 @@
+[ocd]
+url=http://127.0.0.1:9200/ocd_combined_index/_search
+resolver=http://localhost:5000
+
+[bitly]
+user = xxxxxxxx 
+apikey = R_yyyyyyyy
+
+[twitter]
+api_key = xxxxx 
+api_secret = yyyyyy 
+token = zzzzzzz 
+token_secret = aaaaaa 

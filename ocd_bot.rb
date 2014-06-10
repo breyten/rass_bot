@@ -57,6 +57,6 @@ message = "%{title} / %{institution}" % {
     title: @item['_source']['title'],
     institution: @item['_source']['meta']['collection']
 }
-tweet_text = "%s : %s" % [message[0, 120], @short_url]
+tweet_text = "%s : %s" % [message[0, 100], @short_url]
 
 send_tweet(tweet_text, config)

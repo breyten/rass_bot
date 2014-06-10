@@ -1,6 +1,5 @@
 [ocd]
 url=http://127.0.0.1:9200/ocd_combined_index/_search
-resolver=http://localhost:5000
 
 [bitly]
 user = xxxxxxxx 

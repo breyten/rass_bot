@@ -1,12 +1,9 @@
-[ocd]
-url=http://127.0.0.1:9200/ocd_combined_index/_search
-
 [bitly]
-user = xxxxxxxx 
+user = xxxxxxxx
 apikey = R_yyyyyyyy
 
 [twitter]
-api_key = xxxxx 
-api_secret = yyyyyy 
-token = zzzzzzz 
-token_secret = aaaaaa 
+api_key = xxxxx
+api_secret = yyyyyy
+token = zzzzzzz
+token_secret = aaaaaa

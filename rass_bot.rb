@@ -10,26 +10,19 @@ require 'inifile'
 require 'bitly'
 
 def config
-  IniFile.load('ocd_bot.ini')
+  IniFile.load('rass_bot.ini')
 end
 
-def random_item_query
-  {
-    "query" => {
-      "function_score" => {
-        "query" => { "match_all" => {} },
-        "random_score" => { "seed" => Time.now.to_i }
-      }
-    },
-    "size" => 1
-  }
+def random_letter
+  ['A'..'Z'].sample
 end
 
 def get_random_item(config)
-    HTTParty.post(
-        config['ocd']['url'],
-        :body => JSON.generate(random_item_query)
-    )['hits']['hits'][0]
+  letter = random_letter
+    # HTTParty.post(
+    #     config['ocd']['url'],
+    #     :body => JSON.generate(random_item_query)
+    # )['hits']['hits'][0]
 end
 
 def get_item_url(item, config)
@@ -48,15 +41,18 @@ end
 
 @config = config
 @item = get_random_item(@config)
-@item_url = get_item_url(@item, @config)
 
-bitly = Bitly.new(@config['bitly']['user'], @config['bitly']['apikey'])
-@short_url = bitly.shorten(@item_url).short_url
+puts @item.inspect
 
-message = "%{title} / %{institution}" % {
-    title: @item['_source']['title'],
-    institution: @item['_source']['meta']['collection']
-}
-tweet_text = "%s : %s" % [message[0, 100], @short_url]
+# @item_url = get_item_url(@item, @config)
 
-send_tweet(tweet_text, config)
+# bitly = Bitly.new(@config['bitly']['user'], @config['bitly']['apikey'])
+# @short_url = bitly.shorten(@item_url).short_url
+#
+# message = "%{title} / %{institution}" % {
+#     title: @item['_source']['title'],
+#     institution: @item['_source']['meta']['collection']
+# }
+# tweet_text = "%s : %s" % [message[0, 100], @short_url]
+
+# send_tweet(tweet_text, config)

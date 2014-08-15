@@ -1,7 +1,7 @@
-ocd_bot
-=======
+rass_bot
+========
 
-Bot that tweets links from open cultuur data api
+RASS bot that tweets a random RASS
 
 installation
 ------------
